@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: weather-pod
+spec:
+   containers:
+   - name: weather-container
+     image: bandarinaveend/weather:latest
+     ports:
+     - containerPort: 80
