@@ -25,13 +25,25 @@ static_resources:
                       - match: { prefix: "/gfn/app2"}
                         route:
                           cluster: app2_cluster
-                      - match: { prefix: "/weatherforecast"}
+                      - match: { prefix: "/"}
                         route:
-                          cluster: allbackend_cluster
+                          cluster: allbackend_cluster                      
               http_filters:
-              - name: envoy.filters.http.router
-                typed_config:
-                  '@type': "type.googleapis.com/envoy.extensions.filters.http.router.v3.Router"
+                - name: envoy.filters.http.ext_authz
+                  typed_config:
+                    '@type': "type.googleapis.com/envoy.extensions.filters.http.ext_authz.v3.ExtAuthz"                
+                    http_service:
+                      server_uri:
+                        uri: http://cryptomator-vault:4300/
+                        cluster: ext-authz
+                        timeout: 4.5s                        
+                      authorization_request:
+                        allowed_headers:
+                          patterns:
+                            prefix: "Authorization"
+                - name: envoy.filters.http.router
+                  typed_config:
+                    '@type': "type.googleapis.com/envoy.extensions.filters.http.router.v3.Router"
   clusters:
     - name: allbackend_cluster
       connect_timeout: 1s
@@ -77,3 +89,20 @@ static_resources:
                   socket_address:
                     address: host.docker.internal
                     port_value: 5300
+    - name: ext-authz
+      type: strict_dns
+      load_assignment:
+        cluster_name: ext-authz
+        endpoints:
+          - lb_endpoints:
+            - endpoint:
+                address:
+                  socket_address:
+                    address: host.docker.internal
+                    port_value: 4300
+admin:
+  access_log_path: "/dev/stdout"
+  address:
+    socket_address:
+      address: 0.0.0.0
+      port_value: 9090

@@ -67,5 +67,18 @@ namespace WeatherForecast.Controllers
             };
             return Ok(appname);
         }
+
+        [Route("/")]
+        public IActionResult Authorize()
+        {
+
+            Request.Headers.TryGetValue("authorization", out var authorizationValue);
+            if (!string.IsNullOrWhiteSpace(authorizationValue) && authorizationValue == "foo")
+            {
+                return Ok();
+            }
+
+            return StatusCode(StatusCodes.Status403Forbidden);
+        }
     }
 }
