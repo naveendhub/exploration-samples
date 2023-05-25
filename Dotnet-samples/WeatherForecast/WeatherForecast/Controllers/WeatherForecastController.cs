@@ -71,6 +71,8 @@ namespace WeatherForecast.Controllers
         [Route("/")]
         public IActionResult Authorize()
         {
+            _logger.Log(LogLevel.Information, "Authentication Call received");
+
 
             Request.Headers.TryGetValue("authorization", out var authorizationValue);
             if (!string.IsNullOrWhiteSpace(authorizationValue) && authorizationValue == "foo")

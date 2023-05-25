@@ -8,12 +8,13 @@ static_resources:
         - filters:
           - name: envoy.filters.network.http_connection_manager
             typed_config: 
-              '@type': "type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager"
-              stat_prefix: http_proxy
+              "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+              codec_type: AUTO
+              stat_prefix: ingress_http
               route_config: 
-                name: all
+                name: local_route
                 virtual_hosts:
-                  - name: allbackend_cluster
+                  - name: backend
                     domains: 
                       - '*'
                     routes:
@@ -29,21 +30,22 @@ static_resources:
                         route:
                           cluster: allbackend_cluster                      
               http_filters:
-                - name: envoy.filters.http.ext_authz
+                - name: envoy.ext_authz
                   typed_config:
-                    '@type': "type.googleapis.com/envoy.extensions.filters.http.ext_authz.v3.ExtAuthz"                
+                    "@type": type.googleapis.com/envoy.extensions.filters.http.ext_authz.v3.ExtAuthz                
                     http_service:
                       server_uri:
-                        uri: http://cryptomator-vault:4300/
+                        uri: http://host.docker.internal:4300/
                         cluster: ext-authz
                         timeout: 4.5s                        
                       authorization_request:
                         allowed_headers:
                           patterns:
-                            prefix: "Authorization"
+                            exact: authorization
+                    include_peer_certificate: true
                 - name: envoy.filters.http.router
                   typed_config:
-                    '@type': "type.googleapis.com/envoy.extensions.filters.http.router.v3.Router"
+                    "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
   clusters:
     - name: allbackend_cluster
       connect_timeout: 1s
@@ -90,7 +92,8 @@ static_resources:
                     address: host.docker.internal
                     port_value: 5300
     - name: ext-authz
-      type: strict_dns
+      connect_timeout: 0.25s
+      type: logical_dns
       load_assignment:
         cluster_name: ext-authz
         endpoints:
