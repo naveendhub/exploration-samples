@@ -1,0 +1,13 @@
+services:
+
+  ext_authz-http-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: node-http-auth
+    volumes:
+    - ./users.json:/etc/users.json
+    environment:
+    - USERS=/etc/users.json
+    ports:
+    - "9002:9002"
