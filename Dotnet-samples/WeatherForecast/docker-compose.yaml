@@ -1,0 +1,10 @@
+services:
+
+  web-service:
+    build:
+      context: .
+      dockerfile: WeatherForecast\Dockerfile
+    env_file:
+      - .env
+    ports:
+    - "${port}:${port}"
