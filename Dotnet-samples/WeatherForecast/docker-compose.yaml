@@ -1,6 +1,6 @@
 services:
 
-  web-service:
+  http-service:
     build:
       context: .
       dockerfile: WeatherForecast\Dockerfile
