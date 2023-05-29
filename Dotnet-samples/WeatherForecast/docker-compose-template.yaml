@@ -1,0 +1,34 @@
+version: '3.4'
+
+x-labels: &labelsInfo
+  # reference from https://github.com/opencontainers/image-spec/blob/main/annotations.md
+  org.opencontainers.image.vendor: "My Company"
+  org.opencontainers.image.authors: "Department"
+  org.opencontainers.image.source: "https://github.com/my-repo"
+  org.opencontainers.image.revision: "${GIT_COMMIT:-NA}"
+  org.opencontainers.image.build.url: "${GIT_BUILD_URL:-NA}"
+  org.opencontainers.image.build.created: "${BUILD_TIMESTAMP:-NA}"
+
+x-args: &buildArgs
+  DOTNET_SDK_DOCKER_TAG: "${DOTNET_SDK_DOCKER_TAG:-6.0}"
+  ASPNET_RUNTIME_DOCKER_TAG: "${ASPNET_RUNTIME_DOCKER_TAG:-6.0.14-alpine3.17}"
+  AWS_DOTNET_RUNTIME_DOCKER_TAG: "${AWS_DOTNET_RUNTIME_DOCKER_TAG:-6.2023.02.03.12}"
+
+services:
+  datamgmt:
+    image: ${DOCKER_REGISTRY-}Store:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Source/Services/Store/Dockerfile
+
+      args:
+        <<: *buildArgs
+      x-bake:
+        tags:
+          - ${DOCKER_REGISTRY-}Store:latest
+          - ${DOCKER_REGISTRY-}Store:${IMAGE_TAG:-latest}
+
+      labels:
+        <<: *labelsInfo
+        org.opencontainers.image.description: "This service is used to store data in postgress db."
+
