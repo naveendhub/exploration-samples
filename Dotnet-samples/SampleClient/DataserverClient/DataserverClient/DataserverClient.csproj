@@ -61,6 +61,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Externals\Bin\Philips.Platform.CommonTypes.dll</HintPath>
     </Reference>
+    <Reference Include="Philips.Platform.CommonUtilities">
+      <HintPath>..\..\..\..\..\..\..\Views\cp\Common\Output\Bin\Philips.Platform.CommonUtilities.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Philips.Platform.DataServerServiceAccessToolkit, Version=22.5.0.0, Culture=neutral, PublicKeyToken=223d991ebf2e6ef5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Externals\Bin\Philips.Platform.DataServerServiceAccessToolkit.dll</HintPath>
@@ -83,6 +87,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyResolverFinder.cs" />
+    <Compile Include="DataServerDeveloperExecutor.cs" />
+    <Compile Include="DataServerExecutor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WadoClient.cs" />
