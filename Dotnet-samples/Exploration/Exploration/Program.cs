@@ -2,5 +2,4 @@
 
 using Exploration;
 
-var restClient = new RestClient();
-restClient.Run();
+CertificateManager.Run();
