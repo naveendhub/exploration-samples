@@ -24,8 +24,7 @@ namespace Exploration {
                         Console.WriteLine("Certificate does not have private key.");
                     }
                     string encryptedMessage = string.Empty;
-                    using (var key = certificate.GetRSAPublicKey())
-                    {
+                    using (var key = certificate.GetRSAPublicKey()) {
                         var encryptedBytes = key.Encrypt(System.Text.Encoding.UTF8.GetBytes(message), RSAEncryptionPadding.OaepSHA256);
                         encryptedMessage = Convert.ToBase64String(encryptedBytes);
                         Console.WriteLine("Encrypted message: " + encryptedMessage);
@@ -33,8 +32,8 @@ namespace Exploration {
 
                     var passwordVault = new PasswordVault();
                     passwordVault.StoreCredential("exploration", "certificate", encryptedMessage);
-                    
-                    (string iv, string aesKey ) = passwordVault.RetrieveCredential("exploration");
+
+                    (string iv, string aesKey) = passwordVault.RetrieveCredential("exploration");
 
                     Console.WriteLine($"Iv {iv} aes {aesKey}");
 
@@ -44,7 +43,7 @@ namespace Exploration {
                         Console.WriteLine("Decrypted message: " + decryptedMessage);
                     }
 
-                    
+
                 } else {
                     // Certificate not found
                     Console.WriteLine("Certificate not found.");

@@ -2,7 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataserverClient", "DataserverClient.csproj", "{DD805657-773C-4545-F6CF-DA778136D098}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataserverClient", "DataserverClient.csproj", "{6474D9A2-3A76-482B-BFA9-98EBA82FCD5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingClient", "..\LoggingClient\LoggingClient.csproj", "{48731A36-3950-4B92-9D6C-190F96052416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +12,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD805657-773C-4545-F6CF-DA778136D098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD805657-773C-4545-F6CF-DA778136D098}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD805657-773C-4545-F6CF-DA778136D098}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD805657-773C-4545-F6CF-DA778136D098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6474D9A2-3A76-482B-BFA9-98EBA82FCD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6474D9A2-3A76-482B-BFA9-98EBA82FCD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6474D9A2-3A76-482B-BFA9-98EBA82FCD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6474D9A2-3A76-482B-BFA9-98EBA82FCD5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48731A36-3950-4B92-9D6C-190F96052416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48731A36-3950-4B92-9D6C-190F96052416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48731A36-3950-4B92-9D6C-190F96052416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48731A36-3950-4B92-9D6C-190F96052416}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
