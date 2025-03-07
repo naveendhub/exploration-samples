@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Meziantou.Framework.Win32.CredentialManager" Version="1.7.1" />
+    <PackageReference Include="Meziantou.Framework.Win32.CredentialManager" Version="1.7.2" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
   </ItemGroup>
 
