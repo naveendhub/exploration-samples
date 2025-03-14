@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrameWorkExploration.ProcessSynchronization {
+namespace FrameWorkExploration {
     public static class LogSyncConstants {
         // Convention: "Global\DirectoryName_LogSync"
         public static string GetEventName(string directoryPath) {

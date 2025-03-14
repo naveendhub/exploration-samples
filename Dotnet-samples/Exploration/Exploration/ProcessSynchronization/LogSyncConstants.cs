@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exploration.ProcessSynchronization {
+namespace Exploration {
 
     internal class LogSyncConstants {
         // Convention: "Global\DirectoryName_LogSync"

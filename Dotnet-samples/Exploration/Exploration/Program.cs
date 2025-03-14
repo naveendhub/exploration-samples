@@ -3,4 +3,5 @@
 using Exploration;
 using Exploration.Sqlite;
 
-SqliteTests.Run();
+var service = new LogProcesssor();
+service.Run();
