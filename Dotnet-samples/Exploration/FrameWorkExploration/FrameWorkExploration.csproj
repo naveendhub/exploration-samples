@@ -48,6 +48,8 @@
     <Compile Include="DisposableStreamWrapper.cs" />
     <Compile Include="Encryption\PasswordManager.cs" />
     <Compile Include="LogRolloverCompressionService.cs" />
+    <Compile Include="ProcessSynchronization\LogCompressionService.cs" />
+    <Compile Include="ProcessSynchronization\LogSyncConstants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Encryption\PasswordVault.cs" />
