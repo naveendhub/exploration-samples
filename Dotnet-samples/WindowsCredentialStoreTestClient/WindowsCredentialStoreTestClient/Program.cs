@@ -68,6 +68,8 @@ namespace WindowsCredentialStoreTestClient {
                     Console.WriteLine("Invalid command.");
                     break;
             }
+
+            Console.ReadLine();
         }
         private static void ShowHelp() {
             Console.WriteLine("Usage:");
