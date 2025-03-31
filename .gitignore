@@ -403,3 +403,5 @@ FodyWeavers.xsd
 
 #Externals
 Dotnet-samples/DicomLibraryExploration/External/*
+Dotnet-samples/CTFastRespository/FastRepository/Externals/*
+Dotnet-samples/CTFastRespository/FastRepository/External/*

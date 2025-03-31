@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Philips.Platform.ApplicationIntegration">
+      <HintPath>..\..\..\..\Views\cp\AII\Output\Bin\Philips.Platform.ApplicationIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Philips.Platform.CommonTypes">
+      <HintPath>..\..\..\..\Views\cp\Common\Output\Bin\Philips.Platform.CommonTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Philips.Platform.Dicom">
+      <HintPath>..\..\..\..\Views\cp\DomainLibraries\Dicom\Output\Bin\net6.0\Philips.Platform.Dicom.dll</HintPath>
+    </Reference>
+    <Reference Include="Philips.Platform.SystemIntegration">
+      <HintPath>..\..\..\..\Views\cp\SII\Output\Bin\Philips.Platform.SystemIntegration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
