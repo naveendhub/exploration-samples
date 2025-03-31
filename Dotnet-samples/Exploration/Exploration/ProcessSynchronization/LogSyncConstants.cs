@@ -10,7 +10,7 @@ namespace Exploration {
         // Convention: "Global\DirectoryName_LogSync"
         public static string GetEventName(string directoryPath) {
             string dirName = Path.GetFileName(directoryPath);
-            return $"Global\\{dirName}_LogSync";
+            return $"Global\\Test_LogSync";
         }
 
         // Convention: "Global\DirectoryName_LogLock"

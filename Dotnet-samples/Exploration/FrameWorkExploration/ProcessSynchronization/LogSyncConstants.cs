@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 namespace FrameWorkExploration {
     public static class LogSyncConstants {
         // Convention: "Global\DirectoryName_LogSync"
-        public static string GetEventName(string directoryPath) {
-            string dirName = Path.GetFileName(directoryPath);
-            return $"Global\\{dirName}_LogSync";
+        public static string GetEventName() {
+            return $"Global\\Test_LogSync";
         }
 
         // Convention: "Global\DirectoryName_LogLock"

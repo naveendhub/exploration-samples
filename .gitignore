@@ -400,3 +400,6 @@ FodyWeavers.xsd
 # terraform files
 .terraform.lock.hcl
 .terraform/
+
+#Externals
+Dotnet-samples/DicomLibraryExploration/External/*
