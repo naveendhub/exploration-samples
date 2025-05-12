@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompressionUtility.cs" />
+    <Compile Include="DecompressionUtility.cs" />
     <Compile Include="DisposableStreamWrapper.cs" />
     <Compile Include="Encryption\PasswordManager.cs" />
     <Compile Include="LogRolloverCompressionService.cs" />

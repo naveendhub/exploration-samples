@@ -6,7 +6,7 @@ using Philips.Platform.Dicom;
 namespace DicomLibraryExploration {
     internal class CustomDepedencyProvider:DependencyProviderBase {
         
-        private readonly string dicomTagValidatorInterface = typeof(IDicomTagValidator).Name;
+        private readonly string dicomTagValidatorInterface = typeof(IPrivateTagValidator).Name;
         /// <summary>
         /// Provide the concrete type that implements <paramref name="requestedInterface"/>.
         /// </summary>

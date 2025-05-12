@@ -5,3 +5,4 @@ using Exploration.Sqlite;
 
 var service = new LogProcesssor();
 service.Run();
+Console.ReadLine();

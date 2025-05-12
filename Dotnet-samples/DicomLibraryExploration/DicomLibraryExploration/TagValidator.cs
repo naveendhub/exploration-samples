@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Philips.Platform.Dicom;
+﻿using Philips.Platform.Dicom;
 
 namespace DicomLibraryExploration {
-    public class TagValidator: IDicomTagValidator {
+    public class TagValidator: IPrivateTagValidator {
         public bool IsPrivate(uint tag)
         {
             if ((tag & 0x0001ffff) == 0) {
