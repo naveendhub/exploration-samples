@@ -5,9 +5,9 @@ namespace FrameWorkExploration {
         static void Main(string[] args)
         {
 
-            //var service = new CompressionUtility();
-            //service.Run();
-            
+            var service = new TextEncoding();
+            service.Run();
+
             Console.ReadLine();
         }
     }
